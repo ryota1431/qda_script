@@ -95,21 +95,21 @@
 
 ## 注意
 ### 滴定試験のファイルの命名規則について
-    以下の命名規則に従ってファイル名を付けてください。
-    - UVの場合
+   以下の命名規則に従ってファイル名を付けてください。
+   - UVの場合
     ```
     yyyymmdd_compoundname_salt_eq_solvent_nuL.txt
     ```
-    - PLの場合
+   - PLの場合
     ```
     yyyymmdd_compoundname_salt_eq_solvent_nnm_nuL.txt
     ```
-    - yyyymmdd:20241121のような形式の日付
-    - compoundname:化合物名
-    - salt:滴下した塩
-    - solvent:溶媒
-    - nnm:励起波長 "300nm","400nm"のように単位をつける
-    - nuL:滴下した塩の量 "0uL","2uL"のように単位をつける (uL以外はつけないでください)
+   - yyyymmdd:20241121のような形式の日付
+   - compoundname:化合物名
+   - salt:滴下した塩
+   - solvent:溶媒
+   - nnm:励起波長 "300nm","400nm"のように単位をつける
+   - nuL:滴下した塩の量 "0uL","2uL"のように単位をつける (uL以外はつけないでください)
 
 
 

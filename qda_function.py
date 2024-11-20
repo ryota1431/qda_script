@@ -59,7 +59,7 @@ def read_txts(directory):
     return list_of_data, nuL_list
 
 # qdaを作成する関数
-# qdaのデータには2次元リストを格納する。
+# dataには2次元リストを格納する。
 # data = [[wavelength1, wavelength2, ...], [absorbance1-1, absorbance1-2, ...], [absorbance2-1, absorbance2-2, ...], ...]
 def create_qda_file(directory, output_file):
     # 全ての波長を取得

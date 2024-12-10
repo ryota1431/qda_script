@@ -9,4 +9,7 @@ print(folder_list)
 # dataフォルダ内の各フォルダに対してqdaファイルを作成する
 for folder in folder_list:
     directory = os.path.join('data', folder)
-    create_qda_file(directory, f'{folder}.qda')
+    if os.path.isdir(directory):
+        create_qda_file(directory, f'{folder}.qda')
+    else:
+        print(f"Skipping non-directory: {directory}")

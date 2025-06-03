@@ -1,4 +1,5 @@
 import os
+import re
 from qdafile import QDAfile
 
 # ディレクトリにあるtxtファイルの名前のリストを取得する関数
@@ -15,21 +16,21 @@ def get_txt_list(directory):
 #滴下したイオンの量でソートする
 def sort_txt_list(txt_list):
     def extract_number(filename):
-        # ファイル名の最後の部分を取得し、'uL'または'μL'を削除して数値に変換
+        # ファイル名の最後の部分から単位を除き数値を取得
+        last = filename.split('_')[-1].split('.')[0]
+        last = re.sub(r'(μL|µL|uL)$', '', last)
         try:
-            return int(filename.split('_')[-1].replace('μL', '').split('.')[0])
-        except ValueError:
-            pass
-        try:
-            return int(filename.split('_')[-1].replace('uL', '').split('.')[0])
+            return int(last)
         except ValueError:
             return float('inf')  # 数値が見つからない場合は無限大を返す
 
     txt_list.sort(key=extract_number)
     nuL_list = []
     for txt in txt_list:
-        # ファイル名の最後の部分を取得し、'uL'または'μL'を削除して数値に変換
-        nuL_list.append(txt.split('_')[-1].replace('u', '').replace('µ', '').replace('L', '').split('.')[0])
+        # ファイル名の最後の部分を取得し、単位を除いて数値に変換
+        last = txt.split('_')[-1].split('.')[0]
+        last = re.sub(r'(μL|µL|uL)$', '', last)
+        nuL_list.append(last)
     
     for i in range(len(nuL_list)):
         nuL_list[i] = int(nuL_list[i])
